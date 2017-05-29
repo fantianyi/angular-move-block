@@ -1,0 +1,219 @@
+<sd-navbar></sd-navbar>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th class="text-center" colspan="2">OK国际BTC</th>
+        <th class="text-center" colspan="2">OK国际LTC</th>
+        <th class="text-center" colspan="2">BTCE BTC/USD</th>
+        <th class="text-center" colspan="2">BTCE LTC/USD</th>
+        <th class="text-center" colspan="2">BTCE LTC/BTC</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>时间</td>
+        <td colspan="2">{{ok_btc_usd.time}}</td>
+        <td colspan="2">{{ok_ltc_usd.time}}</td>
+        <td colspan="2">{{btce_btc_usd.time}}</td>
+        <td colspan="2">{{btce_ltc_usd.time}}</td>
+        <td colspan="2">{{btce_ltc_btc.time}}</td>
+      </tr>
+      <tr class="warning">
+        <th scope="row">2</th>
+        <td>价格</td>
+        <td>{{ok_btc_usd.buy}}</td>
+        <td>{{ok_btc_usd.sell}}</td>
+        <td>{{ok_ltc_usd.buy}}</td>
+        <td>{{ok_ltc_usd.sell}}</td>
+        <td>{{btce_btc_usd.buy}}</td>
+        <td>{{btce_btc_usd.sell}}</td>
+        <td>{{btce_ltc_usd.buy}}</td>
+        <td>{{btce_ltc_usd.sell}}</td>
+        <td>{{btce_ltc_btc.buy}}</td>
+        <td>{{btce_ltc_btc.sell}}</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>价差</td>
+        <td>{{(ok_btc_usd.buy-btce_btc_usd.buy).toFixed(2)}}</td>
+        <td>{{(ok_btc_usd.sell-btce_btc_usd.sell).toFixed(2)}}</td>
+        <td>{{(ok_ltc_usd.buy-btce_ltc_usd.buy).toFixed(4)}}</td>
+        <td>{{(ok_ltc_usd.sell-btce_ltc_usd.sell).toFixed(4)}}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>参考利润</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td [class.danger]="(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100-0.4) < 0" 
+            [class.success]="(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100-0.4) > 0">{{(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100-0.4).toFixed(2)}}%</td>
+        <td [class.danger]="(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100-0.4) < 0" 
+            [class.success]="(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100-0.4) > 0">{{(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100-0.4).toFixed(2)}}%</td>
+        <td [class.danger]="(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100-0.2) < 0" 
+            [class.success]="(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100-0.2) > 0">{{(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100-0.2).toFixed(2)}}%</td>
+        <td [class.danger]="(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100-0.2) < 0" 
+            [class.success]="(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100-0.2) > 0">{{(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100-0.2).toFixed(2)}}%</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>保底利润</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td [class.danger]="(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100-0.8) < 0" 
+            [class.success]="(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100-0.8) > 0">{{(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100-0.8).toFixed(2)}}%</td>
+        <td [class.danger]="(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100-0.8) < 0" 
+            [class.success]="(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100-0.8) > 0">{{(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100-0.8).toFixed(2)}}%</td>
+        <td [class.danger]="(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100-0.6) < 0" 
+            [class.success]="(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100-0.6) > 0">{{(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100-0.6).toFixed(2)}}%</td>
+        <td [class.danger]="(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100-0.6) < 0" 
+            [class.success]="(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100-0.6) > 0">{{(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100-0.6).toFixed(2)}}%</td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>反向参考利润</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td [class.danger]="(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100)-0.4) < 0" 
+            [class.success]="(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100)-0.4) > 0">{{(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100)-0.4).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100)-0.4) < 0" 
+            [class.success]="(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100)-0.4) > 0">{{(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100)-0.4).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100)-0.2) < 0" 
+            [class.success]="(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100)-0.2) > 0">{{(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100)-0.2).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100)-0.2) < 0" 
+            [class.success]="(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100)-0.2) > 0">{{(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100)-0.2).toFixed(2)}}%</td>
+      </tr>
+      <tr>
+        <th scope="row">5</th>
+        <td>反向保底利润</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td [class.danger]="(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100)-0.8) < 0" 
+            [class.success]="(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100)-0.8) > 0">{{(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_usd.buy/btce_btc_usd.buy*100-100)-0.8).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100)-0.8) < 0" 
+            [class.success]="(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100)-0.8) > 0">{{(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_usd.sell/btce_btc_usd.sell*100-100)-0.8).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100)-0.6) < 0" 
+            [class.success]="(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100)-0.6) > 0">{{(-(ok_btc_usd.buy/ok_ltc_usd.buy*btce_ltc_btc.buy*100-100)-0.6).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100)-0.6) < 0" 
+            [class.success]="(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100)-0.6) > 0">{{(-(ok_btc_usd.sell/ok_ltc_usd.sell*btce_ltc_btc.sell*100-100)-0.6).toFixed(2)}}%</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th class="text-center" colspan="3">OK国际BTC</th>
+        <th class="text-center" colspan="2">OK国际LTC</th>
+        <th class="text-center" colspan="2">BTCE BTC/USD</th>
+        <th class="text-center" colspan="2">BTCE LTC/USD</th>
+        <th class="text-center" colspan="2">BTCE LTC/BTC</th>
+      </tr>
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th class="text-center">价格</th>
+        <th class="text-center">数量</th>
+        <th class="text-center">费</th>
+        <th class="text-center">价格</th>
+        <th class="text-center">数量</th>
+        <th class="text-center">费</th>
+        <th class="text-center">价格</th>
+        <th class="text-center">数量</th>
+        <th class="text-center">价格</th>
+        <th class="text-center">数量</th>
+        <th class="text-center">价格</th>
+        <th class="text-center">数量</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="success">
+        <th scope="row">1</th>
+        <td>手动输入</td>
+        <td><input type="text" class="form-control" [(ngModel)]="ok_btc_usd_price" /></td>
+        <td><input type="text" class="form-control" [(ngModel)]="ok_btc_usd_vol" /></td>
+        <td><input type="checkbox" [(ngModel)]="ok_btc_usd_fee" />0.2%</td>
+        <td><input type="text" class="form-control" [(ngModel)]="ok_ltc_usd_price" /></td>
+        <td><input type="text" class="form-control" [(ngModel)]="ok_ltc_usd_vol" /></td>
+        <td><input type="checkbox" [(ngModel)]="ok_ltc_usd_fee" />0.2%</td>
+        <td><input type="text" class="form-control" [(ngModel)]="btce_btc_usd_price" /></td>
+        <td><input type="text" class="form-control" [(ngModel)]="btce_btc_usd_vol" /></td>
+        <td><input type="text" class="form-control" [(ngModel)]="btce_ltc_usd_price" /></td>
+        <td><input type="text" class="form-control" [(ngModel)]="btce_ltc_usd_vol" /></td>
+        <td><input type="text" class="form-control" [(ngModel)]="btce_ltc_btc_price" /></td>
+        <td><input type="text" class="form-control" [(ngModel)]="btce_ltc_btc_vol" /></td>
+      </tr>
+      <tr>
+        <th scope="row">4</th>
+        <td>利润</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td [class.danger] ="(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_usd_price/btce_btc_usd_price*100-100-0.4) < 0" 
+            [class.success]="(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_usd_price/btce_btc_usd_price*100-100-0.4) > 0">金额：{{(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price/ok_ltc_usd_vol*btce_ltc_usd_price*btce_ltc_usd_vol/btce_btc_usd_price/btce_btc_usd_vol*(ok_btc_usd_fee?0.998:1)*(ok_ltc_usd_fee?0.998:1)*0.996).toFixed(4)}}฿</td>
+        <td [class.danger] ="(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_usd_price/btce_btc_usd_price*100-100-0.4) < 0" 
+            [class.success]="(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_usd_price/btce_btc_usd_price*100-100-0.4) > 0">利率：{{(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_usd_price/btce_btc_usd_price*(ok_btc_usd_fee?0.998:1)*(ok_ltc_usd_fee?0.998:1)*100-100-0.4).toFixed(2)}}%</td>
+        <td [class.danger] ="(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_btc_price*100-100-0.2) < 0" 
+            [class.success]="(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_btc_price*100-100-0.2) > 0">金额：{{(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price/ok_ltc_usd_vol*btce_ltc_btc_price*btce_ltc_btc_vol*(ok_btc_usd_fee?0.998:1)*(ok_ltc_usd_fee?0.998:1)*0.998).toFixed(4)}}฿</td>
+        <td [class.danger] ="(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_btc_price*100-100-0.2) < 0" 
+            [class.success]="(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_btc_price*100-100-0.2) > 0">利率：{{(ok_btc_usd_price/ok_ltc_usd_price*btce_ltc_btc_price*(ok_btc_usd_fee?0.998:1)*(ok_ltc_usd_fee?0.998:1)*100-100-0.2).toFixed(2)}}%</td>
+      </tr>
+      <!--<tr>
+        <th scope="row">4</th>
+        <td>反向利润</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td [class.danger]="(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_usd_price*btce_ltc_usd_vol/btce_btc_usd_price*btce_btc_usd_vol*100-100)-0.4) < 0" 
+            [class.success]="(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_usd_price*btce_ltc_usd_vol/btce_btc_usd_price*btce_btc_usd_vol*100-100)-0.4) > 0">{{(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_usd_price*btce_ltc_usd_vol/btce_btc_usd_price*btce_btc_usd_vol*100-100)-0.4).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_usd_price*btce_ltc_usd_vol/btce_btc_usd_price*btce_btc_usd_vol*100-100)-0.4) < 0" 
+            [class.success]="(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_usd_price*btce_ltc_usd_vol/btce_btc_usd_price*btce_btc_usd_vol*100-100)-0.4) > 0">{{(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_usd_price*btce_ltc_usd_vol/btce_btc_usd_price*btce_btc_usd_vol*100-100)-0.4).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_btc_price*btce_ltc_btc_vol*100-100)-0.2) < 0" 
+            [class.success]="(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_btc_price*btce_ltc_btc_vol*100-100)-0.2) > 0">{{(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_btc_price*btce_ltc_btc_vol*100-100)-0.2).toFixed(2)}}%</td>
+        <td [class.danger]="(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_btc_price*btce_ltc_btc_vol*100-100)-0.2) < 0" 
+            [class.success]="(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_btc_price*btce_ltc_btc_vol*100-100)-0.2) > 0">{{(-(ok_btc_usd_price*ok_btc_usd_vol/ok_ltc_usd_price*ok_ltc_usd_vol*btce_ltc_btc_price*btce_ltc_btc_vol*100-100)-0.2).toFixed(2)}}%</td>
+      </tr>-->
+    </tbody>
+  </table>
+</div>
+
+
+
+
